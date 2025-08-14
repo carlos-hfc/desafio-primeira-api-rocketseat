@@ -1,11 +1,16 @@
-import fastify from 'fastify'
-import { validatorCompiler, serializerCompiler, type ZodTypeProvider, jsonSchemaTransform } from 'fastify-type-provider-zod'
-import fastifySwagger from '@fastify/swagger'
-import fastifySwaggerUi from '@fastify/swagger-ui'
-import { createCourseRoute } from "./src/routes/create-course.ts"
-import { getCoursesRoute } from "./src/routes/get-courses.ts"
-import { getCourseByIdRoute } from "./src/routes/get-course-by-id.ts"
+import fastifySwagger from "@fastify/swagger"
 import scalarApiReference from "@scalar/fastify-api-reference"
+import fastify from "fastify"
+import {
+  jsonSchemaTransform,
+  serializerCompiler,
+  validatorCompiler,
+  type ZodTypeProvider,
+} from "fastify-type-provider-zod"
+
+import { createCourseRoute } from "./src/routes/create-course.ts"
+import { getCourseByIdRoute } from "./src/routes/get-course-by-id.ts"
+import { getCoursesRoute } from "./src/routes/get-courses.ts"
 
 const server = fastify({
   logger: {
@@ -13,27 +18,27 @@ const server = fastify({
       target: "pino-pretty",
       options: {
         translateTime: "HH:MM:ss Z",
-        ignore: "pid,hostname"
-      }
-    }
-  }
+        ignore: "pid,hostname",
+      },
+    },
+  },
 }).withTypeProvider<ZodTypeProvider>()
 
 server.register(fastifySwagger, {
   openapi: {
     info: {
       title: "Desafio Node.js",
-      version: "1.0.0"
-    }
+      version: "1.0.0",
+    },
   },
-  transform: jsonSchemaTransform
+  transform: jsonSchemaTransform,
 })
 
 server.register(scalarApiReference, {
   routePrefix: "/docs",
   configuration: {
-    theme: "kepler"
-  }
+    theme: "kepler",
+  },
 })
 
 server.setSerializerCompiler(serializerCompiler)
