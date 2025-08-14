@@ -15,6 +15,34 @@
       "when": 1755110442087,
       "tag": "0001_yummy_junta",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755182863251,
+      "tag": "0002_shocking_moonstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1755182921030,
+      "tag": "0003_graceful_umar",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1755183449469,
+      "tag": "0004_glossy_lyja",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1755183751902,
+      "tag": "0005_easy_silver_fox",
+      "breakpoints": true
     }
   ]
 }
